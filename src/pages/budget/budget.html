@@ -1,0 +1,120 @@
+<!--
+  Generated template for the BudgetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  
+  <ion-navbar>
+    <ion-title>budget</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <form [formGroup]="budgetForm" (ngSubmit)="insertBudget(budgetForm.value)">
+    <ion-card>
+        <img src="assets/imgs/food.png"/>
+        <ion-card-content>
+          <ion-card-title>
+            Food
+            </ion-card-title>
+          <p>
+          </p>
+          <div *ngFor="let b of budget">
+          <ion-item >
+              <p> {{b.food}}</p>
+            </ion-item>
+          </div>
+            <ion-item *ngIf="b!=null">
+              <ion-input formControlName="food" placeholder={{b.food}}></ion-input>
+            </ion-item>
+          
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <img src="assets/imgs/bill_1236143.png"/>
+          <ion-card-content>
+            <ion-card-title>
+              Bills
+              </ion-card-title>
+            
+            <div *ngFor="let b of budget">
+              <ion-item >
+                  <p> {{b.bills}}</p>
+                </ion-item>
+              </div>
+                <ion-item>
+                <ion-input formControlName="bills" placeholder="Amount"></ion-input>
+              </ion-item>
+            
+            </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <img src="assets/imgs/grocery-bag.png"/>
+            <ion-card-content>
+              <ion-card-title>
+                Grocery
+                </ion-card-title>
+              <p>
+              </p>
+              <div *ngFor="let b of budget">
+                <ion-item >
+                    <p> {{b.grocery}}</p>
+                  </ion-item>
+                </div>
+                  <ion-item>
+                  <ion-input formControlName="grocery" placeholder="Amount"></ion-input>
+                </ion-item>
+              
+            </ion-card-content>
+          </ion-card>
+          <ion-card>
+              <img src="assets/imgs/ent.png"/>
+              <ion-card-content>
+                <ion-card-title>
+                  Entertainment
+                  </ion-card-title>
+                <p>
+                </p>
+                <div *ngFor="let b of budget">
+                  <ion-item >
+                      <p> {{b.entertainment}}</p>
+                    </ion-item>
+                  </div>
+                    <ion-item>
+                    
+                      <ion-input formControlName="entertainment" placeholder="Amount"></ion-input>
+                  </ion-item>
+                
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+                <img src="assets/imgs/misc.png"/>
+                <ion-card-content>
+                  <ion-card-title>
+                    Misc
+                    </ion-card-title>
+                  <p>
+                  </p>
+                  <div *ngFor="let b of budget">
+                    <ion-item>
+                        <p> {{b.misc}}</p>
+                      </ion-item>
+                    </div>
+                        <ion-item>
+                      <ion-input formControlName="misc" placeholder="Amount"></ion-input>
+                    </ion-item>
+                  
+                </ion-card-content>
+              </ion-card>
+
+              <button ion-button type="submit" [disabled]="!budgetForm.valid">Set Budget</button>
+              </form>
+</ion-content>

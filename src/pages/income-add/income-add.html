@@ -1,0 +1,34 @@
+<!--
+  Generated template for the IncomeAddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>incomeAdd</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+        <form [formGroup]="incomeForm" (ngSubmit)="insertIncome(incomeForm.value)">
+            <ion-item>
+                <ion-label>Category</ion-label>
+                <ion-select formControlName="category" name="category"> 
+                  <ion-option value="Salary">Salary</ion-option>
+                  <ion-option value="Freelance">Freelance</ion-option>
+                  <ion-option value="Resale">Resale</ion-option>
+                  <ion-option value="Bonus">Bonus</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Amount</ion-label>
+              <ion-textarea formControlName="amount" name="amount"></ion-textarea>
+            </ion-item>
+            <button ion-button type="submit" [disabled]="!incomeForm.valid">Add Income</button>
+          </form>
+</ion-content>
